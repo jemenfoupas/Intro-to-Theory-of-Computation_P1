@@ -14,6 +14,7 @@ public class DFA implements DFAInterface {
     public void addStartState(String name) {
         this.startState = new DFAState(name);
         this.states.add(startState);
+        
     }
 
     @Override
