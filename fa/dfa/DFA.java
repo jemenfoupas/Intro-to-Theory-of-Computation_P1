@@ -14,13 +14,12 @@ public class DFA implements DFAInterface {
     public void addStartState(String name) {
         this.startState = new DFAState(name);
         this.states.add(startState);
-        
     }
 
     @Override
     public void addState(String name) {
-        // DFAState startState = new DFAState(name);
-        // this.states.add(startState);
+        DFAState state = new DFAState(name);
+        this.states.add(state);
     }
 
     @Override
