@@ -24,8 +24,9 @@ public class DFA implements DFAInterface {
 
     @Override
     public void addFinalState(String name) {
-        // TODO Auto-generated method stub
-
+        DFAState finalState = new DFAState(name);
+        this.states.add(finalState);
+        this.endStates.add(finalState);
     }
 
     @Override
