@@ -7,9 +7,8 @@ import fa.State;
 public class DFA implements DFAInterface {
 
     private DFAState startState;
-    private DFAState endState;
     private Set<DFAState> states;
-    // neet to have a set of stattes and a set of end states
+    private Set<DFAState> endStates;
 
     @Override
     public void addStartState(String name) {
@@ -19,14 +18,14 @@ public class DFA implements DFAInterface {
 
     @Override
     public void addState(String name) {
-        DFAState startState = new DFAState(name);
-        this.states.add(startState);
+        // DFAState startState = new DFAState(name);
+        // this.states.add(startState);
     }
 
     @Override
     public void addFinalState(String name) {
-        this.endState = new DFAState(name);
-        this.states.add(endState);
+        // TODO Auto-generated method stub
+
     }
 
     @Override
