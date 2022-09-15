@@ -6,25 +6,21 @@ import fa.State;
 
 public class DFA implements DFAInterface {
 
-    private DFAState startState;
     private Set<DFAState> states;
 
     @Override
     public void addStartState(String name) {
-        this.startState = new DFAState(name, true, false);
-        this.states.add(startState);
+        this.states.add(new DFAState(name, true, false));
     }
 
     @Override
     public void addState(String name) {
-        DFAState state = new DFAState(name, false, false);
-        this.states.add(state);
+        this.states.add(new DFAState(name, false, false));
     }
 
     @Override
     public void addFinalState(String name) {
-        DFAState finalState = new DFAState(name, false, true);
-        this.states.add(finalState);
+        this.states.add(new DFAState(name, false, true));
     }
 
     @Override
@@ -38,8 +34,7 @@ public class DFA implements DFAInterface {
 
     @Override
     public Set<? extends State> getStates() {
-        // TODO Auto-generated method stub
-        return null;
+        return states;
     }
 
     @Override
