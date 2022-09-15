@@ -32,6 +32,9 @@ public class DFA implements DFAInterface {
                 state.addTransition(onSymb, toState);
             }
         }
+        if(!sigma.contains(onSymb)){
+            sigma.add(onSymb); //adds symbol to sigma if not already added
+        }
     }
 
     @Override
@@ -41,10 +44,10 @@ public class DFA implements DFAInterface {
 
     @Override
     public Set<? extends State> getFinalStates() {
-        Set<DFAState> rtVal = new HashSet<DFAState>();
-        for(DFAState d : this.states){
+        Set<DFAState> rtVal = new HashSet<DFAState>(); //return value
+        for(DFAState d : this.states){ //check all states
             if(d.isFinalState()){
-                rtVal.add(d);
+                rtVal.add(d); //add state to return value if final
             }
         }
         return rtVal;
@@ -52,17 +55,17 @@ public class DFA implements DFAInterface {
 
     @Override
     public State getStartState() {
-        for(DFAState d : this.states){
+        for(DFAState d : this.states){ // check all states
             if(d.isStartState()){
-                return d;
+                return d; //return when start state is found
             }
         }
-        return null;
+        return null; //return null if there is no start state
     }
 
     @Override
     public Set<Character> getABC() {
-        return sigma;
+        return sigma; //return sigma
     }
 
     @Override
