@@ -76,25 +76,17 @@ public class DFA implements DFAInterface {
 
     @Override
     public boolean accepts(String s) {
-        /*DFAState curr = this.getStartState();
+        DFAState curr = this.getStartState();
         String nextName;
         for(int i=0; i<s.length(); i++){
             nextName = curr.getTransitions(s.charAt(i));
-            curr = this.getState(nextName);
-        }*/
+            curr = this.states.get(nextName);
+        }
+        if(curr.isFinalState()){
+            return true;
+        }
         return false;
     }
-
-    /**
-     * Added to help convert from a string to DFAState
-     * @param name name of state
-     * @return DFAState from states
-     */
-    /*private DFAState getState(String nextName) {
-        DFAState rtVal;
-        if(this.states.contains())
-        return null;
-    }*/
 
     @Override
     public State getToState(DFAState from, char onSymb) {
