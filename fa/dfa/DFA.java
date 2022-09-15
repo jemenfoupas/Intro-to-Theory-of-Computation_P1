@@ -1,5 +1,6 @@
 package fa.dfa;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import fa.State;
@@ -39,8 +40,13 @@ public class DFA implements DFAInterface {
 
     @Override
     public Set<? extends State> getFinalStates() {
-        // TODO Auto-generated method stub
-        return null;
+        Set<DFAState> rtVal = new HashSet<DFAState>();
+        for(DFAState d : this.states){
+            if(d.isFinalState()){
+                rtVal.add(d);
+            }
+        }
+        return rtVal;
     }
 
     @Override
