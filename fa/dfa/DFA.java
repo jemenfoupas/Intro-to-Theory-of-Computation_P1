@@ -51,7 +51,11 @@ public class DFA implements DFAInterface {
 
     @Override
     public State getStartState() {
-        // TODO Auto-generated method stub
+        for(DFAState d : this.states){
+            if(d.isStartState()){
+                return d;
+            }
+        }
         return null;
     }
 
