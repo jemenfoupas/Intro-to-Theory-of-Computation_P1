@@ -8,6 +8,7 @@ import fa.State;
 public class DFA implements DFAInterface {
 
     private Set<DFAState> states;
+    private Set<Character> sigma;
 
     @Override
     public void addStartState(String name) {
@@ -61,8 +62,7 @@ public class DFA implements DFAInterface {
 
     @Override
     public Set<Character> getABC() {
-        // TODO Auto-generated method stub
-        return null;
+        return sigma;
     }
 
     @Override
