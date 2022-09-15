@@ -8,6 +8,9 @@ public class DFA implements DFAInterface {
 
     private DFAState startState;
     private Set<DFAState> states;
+
+    // should add a variable in the dfastate class that 
+    // tell if the state is an final state
     private Set<DFAState> endStates;
 
     @Override
@@ -31,8 +34,11 @@ public class DFA implements DFAInterface {
 
     @Override
     public void addTransition(String fromState, char onSymb, String toState) {
-        // TODO Auto-generated method stub
-        
+        for(DFAState state : states) {
+            if(state.getName().equals(fromState)) {
+                state.addTransition(onSymb, toState);
+            }
+        }
     }
 
     @Override
