@@ -2,16 +2,21 @@ package fa.dfa;
 
 import java.util.HashMap;
 
-import javax.print.attribute.HashDocAttributeSet;
 
 import fa.State;
 
 public class DFAState extends State {
 
     private HashMap<Character, String> transitions;
+    private boolean startState;
+    private boolean finalState;
 
-    public DFAState(String name) {
+    // should add a variable in the dfastate class that 
+    // tell if the state is an final state
+    public DFAState(String name, boolean isStartState, boolean isFinalState) {
         this.name = name;
+        this.startState = isStartState;
+        this.finalState = isFinalState;
         transitions = new HashMap<>();
     }
 
@@ -20,8 +25,20 @@ public class DFAState extends State {
         return nextState;
     }
 
-    public void addTransitions(){
+    public void addTransition(char onSymb, String toState){
+        transitions.put(onSymb, toState);
+    }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public boolean isStartState() {
+        return startState;
+    }
+
+    public boolean isFinalState() {
+        return finalState;
     }
 
     

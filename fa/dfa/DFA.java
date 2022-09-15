@@ -9,27 +9,22 @@ public class DFA implements DFAInterface {
     private DFAState startState;
     private Set<DFAState> states;
 
-    // should add a variable in the dfastate class that 
-    // tell if the state is an final state
-    private Set<DFAState> endStates;
-
     @Override
     public void addStartState(String name) {
-        this.startState = new DFAState(name);
+        this.startState = new DFAState(name, true, false);
         this.states.add(startState);
     }
 
     @Override
     public void addState(String name) {
-        DFAState state = new DFAState(name);
+        DFAState state = new DFAState(name, false, false);
         this.states.add(state);
     }
 
     @Override
     public void addFinalState(String name) {
-        DFAState finalState = new DFAState(name);
+        DFAState finalState = new DFAState(name, false, true);
         this.states.add(finalState);
-        this.endStates.add(finalState);
     }
 
     @Override
