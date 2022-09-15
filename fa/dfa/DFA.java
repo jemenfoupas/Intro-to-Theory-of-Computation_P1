@@ -76,20 +76,20 @@ public class DFA implements DFAInterface {
 
     @Override
     public boolean accepts(String s) {
-        DFAState curr = this.getStartState();
-        for(int i=0; i<s.length(); i++){
-            curr = (DFAState) this.getToState(curr, s.charAt(i));
+        DFAState curr = this.getStartState(); //start at start state
+        for(int i=0; i<s.length(); i++){ //for every character
+            curr = (DFAState) this.getToState(curr, s.charAt(i)); //go to next transition
         }
         if(curr.isFinalState()){
-            return true;
+            return true; //return true if last state is final state
         }
         return false;
     }
 
     @Override
     public State getToState(DFAState from, char onSymb) {
-        String nextName = from.getTransitions(onSymb);
-        DFAState rtVal = this.states.get(nextName);
+        String nextName = from.getTransitions(onSymb); //get name of next state
+        DFAState rtVal = this.states.get(nextName); //get DFAState from states
         return rtVal;
     }
 
