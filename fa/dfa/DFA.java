@@ -77,10 +77,8 @@ public class DFA implements DFAInterface {
     @Override
     public boolean accepts(String s) {
         DFAState curr = this.getStartState();
-        String nextName;
         for(int i=0; i<s.length(); i++){
-            nextName = curr.getTransitions(s.charAt(i));
-            curr = this.states.get(nextName);
+            curr = (DFAState) this.getToState(curr, s.charAt(i));
         }
         if(curr.isFinalState()){
             return true;
@@ -90,8 +88,9 @@ public class DFA implements DFAInterface {
 
     @Override
     public State getToState(DFAState from, char onSymb) {
-        // TODO Auto-generated method stub
-        return null;
+        String nextName = from.getTransitions(onSymb);
+        DFAState rtVal = this.states.get(nextName);
+        return rtVal;
     }
 
 }
