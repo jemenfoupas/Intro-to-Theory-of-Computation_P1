@@ -20,7 +20,14 @@ public class DFA implements DFAInterface {
 
     @Override
     public void addStartState(String name) {
-        this.states.add(new DFAState(name, true, false));
+        boolean alreadyExist = false;
+        for(DFAState state : states) {
+            if(state.getName().equals(name)){
+                alreadyExist = true;
+                this.states.add(new DFAState(name, true, true));
+            }
+        }
+        if(!alreadyExist) this.states.add(new DFAState(name, true, false));
     }
 
     @Override
