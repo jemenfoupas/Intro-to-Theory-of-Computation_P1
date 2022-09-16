@@ -10,6 +10,14 @@ public class DFA implements DFAInterface {
     private Set<DFAState> states;
     private Set<Character> sigma;
 
+    /**
+     * instance the instance variables
+     */
+    public DFA (){
+        this.states = new HashSet<>();
+        this.sigma = new HashSet<>();
+    }
+
     @Override
     public void addStartState(String name) {
         this.states.add(new DFAState(name, true, false));
