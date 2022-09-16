@@ -99,7 +99,7 @@ public class DFA implements DFAInterface {
             for(int i=0; i<s.length(); i++){ //for every character
                 curr = (DFAState) this.getToState(curr, s.charAt(i)); //go to next transition
             }
-            if(curr.isFinalState()){
+            if(curr != null && curr.isFinalState()){
                 return true; //return true if last state is final state
             }
             return false;
