@@ -85,11 +85,11 @@ public class DFA implements DFAInterface {
 
     @Override
     public boolean accepts(String s) {
-        if(s=="e"){
+        if(s.equals("e")){ //check for empty string
             for(DFAState d : this.states){
-                if(d.isStartState()){
+                if(d.isStartState()){ //find start state
                     if(d.isFinalState()){
-                        return true;
+                        return true; //return true if also final state
                     }
                 }
             }
@@ -118,4 +118,44 @@ public class DFA implements DFAInterface {
         return rtVal;
     }
 
+    @Override
+    public String toString(){
+        String rtVal = "";
+        rtVal += "Q = { ";
+        for(DFAState q : this.states){
+            rtVal += q.getName()+" ";
+        }
+        rtVal += "}\n";
+        rtVal += "Sigma = { ";
+        for(char c : sigma){
+            rtVal += c+" ";
+        }
+        rtVal += "}\n";
+        rtVal += "delta =\n\t\t";
+        for(char c : sigma){
+            rtVal += c+"\t";
+        }
+        rtVal += "\n";
+        for(DFAState q : this.states){
+            rtVal += "\t"+q.getName()+"\t";
+            for(char c : sigma){
+                rtVal += q.getTransitions(c)+"\t";
+            }
+            rtVal += "\n";
+        }
+        rtVal += "q0 = ";
+        for(DFAState q : this.states){
+            if(q.isStartState()){
+                rtVal += q.getName()+"\n";
+            }
+        }
+        rtVal += "F = { ";
+        for(DFAState q : this.states){
+            if(q.isFinalState()){
+                rtVal += q.getName()+" ";
+            }
+        }
+        rtVal += "}\n";
+        return rtVal;
+    }
 }
