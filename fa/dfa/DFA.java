@@ -85,7 +85,7 @@ public class DFA implements DFAInterface {
 
     @Override
     public boolean accepts(String s) {
-        if(s==null){
+        if(s=="e"){
             for(DFAState d : this.states){
                 if(d.isStartState()){
                     if(d.isFinalState()){
