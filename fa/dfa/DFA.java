@@ -78,6 +78,16 @@ public class DFA implements DFAInterface {
 
     @Override
     public boolean accepts(String s) {
+        if(s==null){
+            for(DFAState d : this.states){
+                if(d.isStartState()){
+                    if(d.isFinalState()){
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
         DFAState curr = this.getStartState(); //start at start state
         for(int i=0; i<s.length(); i++){ //for every character
             curr = (DFAState) this.getToState(curr, s.charAt(i)); //go to next transition
