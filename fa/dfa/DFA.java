@@ -116,8 +116,8 @@ public class DFA implements DFAInterface {
         DFAState rtVal = null;
         String nextName = from.getTransitions(onSymb); //get name of next state
 
-        for(DFAState d : states){
-            if(d.getName().equals(nextName)){
+        for(DFAState d : states){ 
+            if(d.getName().equals(nextName)){ //find state with same name
                 rtVal = d;
             }
         }
