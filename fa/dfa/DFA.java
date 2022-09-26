@@ -120,18 +120,18 @@ public class DFA implements DFAInterface {
 
     @Override
     public String toString(){
-        String rtVal = "";
-        rtVal += "Q = { ";
+        String rtVal = ""; 
+        rtVal += "Q = { "; //add set of states
         for(DFAState q : this.states){
             rtVal += q.getName()+" ";
         }
         rtVal += "}\n";
-        rtVal += "Sigma = { ";
+        rtVal += "Sigma = { "; //add set of accepted characters
         for(char c : sigma){
             rtVal += c+" ";
         }
         rtVal += "}\n";
-        rtVal += "delta =\n\t\t";
+        rtVal += "delta =\n\t\t"; //add transition table
         for(char c : sigma){
             rtVal += c+"\t";
         }
@@ -143,19 +143,19 @@ public class DFA implements DFAInterface {
             }
             rtVal += "\n";
         }
-        rtVal += "q0 = ";
+        rtVal += "q0 = "; //add start state
         for(DFAState q : this.states){
             if(q.isStartState()){
                 rtVal += q.getName()+"\n";
             }
         }
-        rtVal += "F = { ";
+        rtVal += "F = { "; //add set of final states
         for(DFAState q : this.states){
             if(q.isFinalState()){
                 rtVal += q.getName()+" ";
             }
         }
         rtVal += "}\n";
-        return rtVal;
+        return rtVal; //return
     }
 }
