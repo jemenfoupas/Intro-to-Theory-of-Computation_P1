@@ -1,0 +1,9 @@
+5
+0
+1 2 3 4
+0a1 0b2 0c0 1a1 1b4 1c1 2a4 2b3 2c2 3a5 3b3 3c3 4a4 4b5 4c4 5a5 5b5 5c5
+e
+ab
+abcca
+bcabc
+cbbaaaabb
