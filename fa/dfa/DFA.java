@@ -28,7 +28,7 @@ public class DFA implements DFAInterface {
         for(DFAState state : states) {
             if(state.getName().equals(name)){
                 alreadyExist = true;
-                this.states.add(new DFAState(name, true, true));
+                state.setStartState(true);
             }
         }
         if(!alreadyExist) this.states.add(new DFAState(name, true, false));
