@@ -9,6 +9,8 @@ public class DFA implements DFAInterface {
 
     private Set<DFAState> states;
     private Set<Character> sigma;
+    private DFAState qerror;
+
 
     /**
      * instance the instance variables
@@ -16,6 +18,8 @@ public class DFA implements DFAInterface {
     public DFA (){
         this.states = new HashSet<>();
         this.sigma = new HashSet<>();
+
+        qerror = new DFAState("qerror", false, false);
     }
 
     @Override
@@ -49,6 +53,7 @@ public class DFA implements DFAInterface {
         }
         if(!sigma.contains(onSymb)){
             sigma.add(onSymb); //adds symbol to sigma if not already added
+            qerror.addTransition(onSymb, "qerror");
         }
     }
 
@@ -110,11 +115,13 @@ public class DFA implements DFAInterface {
     public State getToState(DFAState from, char onSymb) {
         DFAState rtVal = null;
         String nextName = from.getTransitions(onSymb); //get name of next state
+
         for(DFAState d : states){
             if(d.getName().equals(nextName)){
                 rtVal = d;
             }
         }
+        if(rtVal == null) return qerror;
         return rtVal;
     }
 
