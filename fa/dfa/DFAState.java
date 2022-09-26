@@ -41,5 +41,8 @@ public class DFAState extends State {
         return finalState;
     }
 
+    public void setFinalState(boolean b){
+        this.finalState = b;
+    }
     
 }
