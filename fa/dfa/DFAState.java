@@ -41,10 +41,18 @@ public class DFAState extends State {
         return finalState;
     }
 
+    /**
+     * Set state to final state or not
+     * @param b boolean
+     */
     public void setFinalState(boolean b){
         this.finalState = b;
     }
 
+    /**
+     * Set state to start state or not
+     * @param b boolean
+     */
     public void setStartState(boolean b){
         this.startState = b;
     }
