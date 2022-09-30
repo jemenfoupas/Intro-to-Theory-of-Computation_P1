@@ -5,14 +5,19 @@ import java.util.Set;
 
 import fa.State;
 
+/**
+ * DFA class that represents a deterministic finite automata
+ * @author Rich Boundji & Ethan Raygor
+ */
 public class DFA implements DFAInterface {
 
-    private Set<DFAState> states;
-    private Set<Character> sigma;
-    private DFAState qerror;
+    private Set<DFAState> states; // set of states in dfa
+    private Set<Character> sigma; // set of symbols in language of dfa
+    private DFAState qerror; //qerror state for if a bad transition is attempted
 
 
     /**
+     * Constructor
      * instance the instance variables
      */
     public DFA (){
