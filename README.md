@@ -21,6 +21,7 @@ Compilation:
 - `$ javac fa/dfa/*.java`
 
 Running (Example uses text case 1):
-java fa/dfa/DFADriver ./tests/p1tc1.txt
+
+`$ java fa/dfa/DFADriver ./tests/p1tc1.txt`
 
 There are no known bugs in this project.
